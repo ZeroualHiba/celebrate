@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: rgb(219, 188, 188);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+@keyframes sparkle {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.star {
+    font-size: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    display: inline-block;
+    animation: slideDown 0.8s ease-out;
+}
+
+.star:hover {
+    animation: sparkle 0.6s infinite alternate;
+    color: gold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+#messageBox, #finalMessage, #secretBox, #loveMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+    text-shadow: 0px 0px 8px rgba(255, 100, 150, 0.8);
+    font-size: 1.5rem
+}
+
+.memory-image {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+}
+
+#playButton {
+    animation: pulse 1.5s infinite alternate;
+    transition: transform 0.2s;
+}
+
+#playButton:hover {
+    transform: scale(1.1);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    top: -10px;
+    font-size: 20px;
+    color: red;
+    animation: fall 5s linear infinite;
+}
+
+
+#letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 1s ease-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.love-message {
+    position: absolute;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;  /* Texte en noir */
+    opacity: 0;
+    animation: fall 4s ease-in ;
+}
+
+/* ✨ Animation d'apparition en fondu */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 1; }
+}
+
+/* 📩 Message final avec animation */
+#finalMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 100, 150, 0.8);
+    animation: fadeInOut 1.5s ease-in-out;
+    z-index: 250;
+    max-width: 90%;
+}
+
+/* 🎭 Classe pour FADE OUT si nécessaire */
+.fade-out {
+    animation: fadeOut 1.5s ease-out forwards;
+}
+
+/* 🔄 Animation de disparition */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: scale(0.8); }
+}
